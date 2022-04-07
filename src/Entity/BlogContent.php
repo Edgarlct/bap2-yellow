@@ -6,6 +6,7 @@ use App\Repository\BlogContentRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 #[ORM\Entity(repositoryClass: BlogContentRepository::class)]
 class BlogContent
@@ -25,9 +26,11 @@ class BlogContent
     private $openComment;
 
     #[ORM\Column(type: 'datetime')]
+    #[Gedmo\Timestampable(on: 'update')]
     private $updatedAt;
 
     #[ORM\Column(type: 'datetime')]
+    #[Gedmo\Timestampable(on: 'create')]
     private $createdAt;
 
     #[ORM\ManyToOne(targetEntity: Category::class, inversedBy: 'blogContents')]

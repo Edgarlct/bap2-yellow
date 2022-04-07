@@ -57,7 +57,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Demande de contact', 'fa fa-address-book-o', RequestContact::class);
         yield MenuItem::linkToCrud('Base e-mail', 'fa fa-envelope-o', Newsletter::class);
         yield MenuItem::section('Offre');
-        yield MenuItem::linkToCrud('Offre d\'abonnement', 'fa fa-shopping-bag', Offer::class)->setPermission('ROLE_USER');
+        yield MenuItem::linkToCrud('Offre d\'abonnement', 'fa fa-shopping-bag', Offer::class);
 
     }
 }
