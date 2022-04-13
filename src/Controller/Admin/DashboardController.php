@@ -5,10 +5,12 @@ namespace App\Controller\Admin;
 use App\Entity\BlogContent;
 use App\Entity\Category;
 use App\Entity\Comment;
+use App\Entity\Equipe;
 use App\Entity\Newsletter;
 use App\Entity\Offer;
 use App\Entity\RequestContact;
 use App\Entity\SubjectContact;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
@@ -56,8 +58,14 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Sujet d\'une demande', 'fa fa-question-circle-o', SubjectContact::class);
         yield MenuItem::linkToCrud('Demande de contact', 'fa fa-address-book-o', RequestContact::class);
         yield MenuItem::linkToCrud('Base e-mail', 'fa fa-envelope-o', Newsletter::class);
-        yield MenuItem::section('Offre');
+        yield MenuItem::section('Contenu du site');
         yield MenuItem::linkToCrud('Offre d\'abonnement', 'fa fa-shopping-bag', Offer::class);
+        yield MenuItem::linkToCrud('Membre de l\'équipe', 'fa fa-users', Equipe::class);
 
+    }
+
+    public function configureAssets(): Assets
+    {
+        return Assets::new()->addCssFile('css/admin.css');
     }
 }

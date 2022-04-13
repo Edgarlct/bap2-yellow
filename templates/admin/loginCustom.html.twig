@@ -1,0 +1,11 @@
+{# templates/admin/my-custom-page.html.twig #}
+{% extends '@EasyAdmin/page/login.html.twig' %}
+{% block head_stylesheets %}
+    <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+    <link rel="stylesheet" href="{{ asset('/bundles/easyadmin/app.css') }}">
+{% endblock %}
+
+{% block content_title %}The Title of the Page{% endblock %}
+
+{% block main %}
+{% endblock %}
