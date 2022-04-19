@@ -1,3 +1,16 @@
-label{
-    background-color: red !important;
+.btn-primary.btn-primary{
+    background-color: #E2AC6C;
+    transition: color 0.2s ease-in;
+}
+
+.btn:hover{
+    color: #122040 !important;
+}
+
+.dropdown-appearance .dropdown-item.active, .dropdown-appearance .dropdown-item.active i, .menu-item.active a, .menu-item.active i{
+    color: #E2AC6C !important;
+}
+
+.btn-primary:hover{
+    background-color: #E2AC6C !important;
 }
