@@ -10,6 +10,7 @@ use App\Entity\Newsletter;
 use App\Entity\Offer;
 use App\Entity\RequestContact;
 use App\Entity\SubjectContact;
+use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -50,6 +51,8 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::linkToDashboard('User', 'fa fa-user-o');
+        yield MenuItem::section('User');
+        yield MenuItem::linkToCrud('User', 'fa fa-user-o', User::class);
         yield MenuItem::section('Blog');
         yield MenuItem::linkToCrud('Categories du blog', 'fa fa-tags', Category::class);
         yield MenuItem::linkToCrud('Article de blog', 'fa fa-file-text-o', BlogContent::class);
