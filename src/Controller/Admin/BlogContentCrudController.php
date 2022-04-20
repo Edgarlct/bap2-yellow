@@ -57,7 +57,7 @@ class BlogContentCrudController extends AbstractCrudController
                 return $action
                     ->linkToRoute('app_blog_content')
                     ->setIcon('fa fa-file-alt')
-                    ->setLabel('Créer un article');
+                    ->setLabel('Écrire un article');
             })
             ;
 
