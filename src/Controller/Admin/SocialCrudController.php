@@ -6,6 +6,7 @@ use App\Entity\Social;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class SocialCrudController extends AbstractCrudController
@@ -21,7 +22,29 @@ class SocialCrudController extends AbstractCrudController
         return [
             IdField::new('id')->setDisabled(),
             TextField::new('url'),
-            TextField::new('icon'),
+            ImageField::new('image')
+                ->setUploadDir('public/uploads/icon')
+                ->setBasePath('uploads/icon')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setFormTypeOptions([
+                    'attr' => [
+                        'accept' => 'image/jpeg , image/png'
+                    ]
+                ])
+                ->hideWhenCreating()
+                ->setFormTypeOption('required' ,false),
+            ImageField::new('image')
+                ->setUploadDir('public/uploads/icon')
+                ->setBasePath('uploads/icon')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setFormTypeOptions([
+                    'attr' => [
+                        'accept' => 'image/jpeg , image/png'
+                    ]
+                ])
+                ->hideWhenUpdating()
+                ->hideOnIndex()
+                ->setFormTypeOption('required' ,true),
             AssociationField::new('type')
         ];
     }

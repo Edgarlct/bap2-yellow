@@ -23,6 +23,9 @@ class Social
     #[ORM\JoinColumn(nullable: false)]
     private $type;
 
+    #[ORM\Column(type: 'string', length: 255, nullable: true)]
+    private $image;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -60,6 +63,18 @@ class Social
     public function setType(?SocialType $type): self
     {
         $this->type = $type;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
