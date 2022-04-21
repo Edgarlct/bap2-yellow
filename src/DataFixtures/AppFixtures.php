@@ -20,6 +20,7 @@ class AppFixtures extends Fixture
          $user->setFirstName('a');
          $user->setLastName('a');
          $user->setAge('21');
+         $user->setIsVerified(1);
          $user->setIsSub(true);
          $password = $this->hasher->hashPassword($user, 'a');
 
