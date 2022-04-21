@@ -58,8 +58,8 @@ body{
     font-size: .875rem;
     font-weight: 400;
     line-height: 1.5;
-    padding: .375rem .75rem;
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    width: 100%;
 }
 
 .sidebarContent > div:nth-child(4){
@@ -104,4 +104,25 @@ body{
 .contentBlog{
     width: 100%;
     padding: 1rem;
+}
+
+@media only screen and (max-width: 800px) {
+    .containerContent{
+        flex-direction: column;
+    }
+
+    .sidebarContent{
+        height: unset;
+        width: auto;
+        border-right: unset;
+        border-bottom: solid 1px lightgrey;
+    }
+
+    .contentBlog{
+        width: auto;
+    }
+
+    .formInput{
+        width: unset;
+    }
 }
