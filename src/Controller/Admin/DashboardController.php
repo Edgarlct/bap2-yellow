@@ -6,9 +6,11 @@ use App\Entity\BlogContent;
 use App\Entity\Category;
 use App\Entity\Comment;
 use App\Entity\Equipe;
+use App\Entity\Legal;
 use App\Entity\Newsletter;
 use App\Entity\Offer;
 use App\Entity\RequestContact;
+use App\Entity\Social;
 use App\Entity\SubjectContact;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
@@ -64,6 +66,9 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::section('Contenu du site');
         yield MenuItem::linkToCrud('Offre d\'abonnement', 'fa fa-shopping-bag', Offer::class);
         yield MenuItem::linkToCrud('Membre de l\'équipe', 'fa fa-users', Equipe::class);
+        yield MenuItem::section('Elements du footer');
+        yield MenuItem::linkToCrud('Mention l\'égale', 'fa fa-gavel', Legal::class);
+        yield MenuItem::linkToCrud('Réseaux sociaux', 'fa fa-share-square-o', Social::class);
 
     }
 
