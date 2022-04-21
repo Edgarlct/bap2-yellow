@@ -3,6 +3,6 @@
 {% block title %}Hello BlogContentController!{% endblock %}
 
 {% block body %}
-    <a href="{{app.request.headers.get('referer')}}">Retour</a>
+    <a href="{{url}}">Retour</a>
     {{ form(form) }}
 {% endblock %}

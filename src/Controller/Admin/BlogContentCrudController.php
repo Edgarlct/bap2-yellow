@@ -59,6 +59,21 @@ class BlogContentCrudController extends AbstractCrudController
                     ->setIcon('fa fa-file-alt')
                     ->setLabel('Écrire un article');
             })
+            ->update(Crud::PAGE_INDEX, Action::EDIT, function (Action $action) {
+                return $action
+                    ->linkToRoute('app_blog_content_edit', function (BlogContent $content): array {
+                        return [
+                            'name' => $content->getName(),
+                            'content' => $content->getContent(),
+                            'comment' => $content->getOpenComment(),
+                            'category' => $content->getCategory()->getId(),
+                            'visible' => $content->getIsVisible(),
+                            'id' => $content->getId()
+                        ];
+                    })
+                    ->setIcon('fa fa-eye')
+                    ->setLabel('Voir');
+            })
             ;
 
     }
