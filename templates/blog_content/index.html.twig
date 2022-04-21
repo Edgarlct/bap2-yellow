@@ -3,6 +3,21 @@
 {% block title %}Hello BlogContentController!{% endblock %}
 
 {% block body %}
-    <a href="{{url}}">Retour</a>
+    <div class="containerContent">
+        <div class="sidebarContent">
+            <a href="{{ url }}" class="backContainer">
+                <i class="fa fa-angle-left" aria-hidden="true"></i>
+                <p>Retour</p>
+            </a>
+            {{ form_row(form.name) }}
+            {{ form_row(form.category) }}
+            {{ form_row(form.openComment) }}
+            {{ form_row(form.isVisible) }}
+            {{ form_row(form.send) }}
+        </div>
+        <div class="contentBlog">
+            {{ form_row(form.content) }}
+        </div>
+    </div>
     {{ form(form) }}
 {% endblock %}
