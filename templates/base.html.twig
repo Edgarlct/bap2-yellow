@@ -17,5 +17,6 @@
     </head>
     <body>
         {% block body %}{% endblock %}
+        {{ render(controller('App\\Controller\\AppController::footer')) }}<!-- .footer -->
     </body>
 </html>
