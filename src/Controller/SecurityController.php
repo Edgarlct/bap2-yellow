@@ -44,13 +44,13 @@ class SecurityController extends AbstractController
             'target_path' => $this->generateUrl('admin'),
 
             // the label displayed for the username form field (the |trans filter is applied to it)
-            'username_label' => 'Email',
+            'username_label' => 'E-mail',
 
             // the label displayed for the password form field (the |trans filter is applied to it)
-            'password_label' => 'Password',
+            'password_label' => 'Mot de passe',
 
             // the label displayed for the Sign In form button (the |trans filter is applied to it)
-            'sign_in_label' => 'Log in',
+            'sign_in_label' => 'Se connecter',
 
             // the 'name' HTML attribute of the <input> used for the username field (default: '_username')
             'username_parameter' => 'email',
@@ -65,7 +65,7 @@ class SecurityController extends AbstractController
             'forgot_password_path' => $this->generateUrl('app_forgot_password_request', ['...' => '...']),
 
             // the label displayed for the "forgot password?" link (the |trans filter is applied to it)
-            'forgot_password_label' => 'Forgot your password?',
+            'forgot_password_label' => 'Mot de passe oublier ?',
 
             // whether to enable or not the "remember me" checkbox (default: false)
             'remember_me_enabled' => false,
