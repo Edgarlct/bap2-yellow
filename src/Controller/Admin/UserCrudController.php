@@ -14,6 +14,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\NumberField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\ArrayFilter;
@@ -42,6 +43,31 @@ class UserCrudController extends AbstractCrudController
             TextField::new("first_name")->setDisabled(),
             TextField::new("last_name")->setDisabled(),
             NumberField::new("age")->setDisabled(),
+            ImageField::new('picture')
+                ->setColumns(4)
+                ->setUploadDir('public/uploads/user')
+                ->setBasePath('uploads/user')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setFormTypeOptions([
+                    'attr' => [
+                        'accept' => 'image/jpeg , image/png'
+                    ]
+                ])
+                ->hideWhenCreating()
+                ->setFormTypeOption('required' ,false),
+            ImageField::new('picture')
+                ->setColumns(4)
+                ->setUploadDir('public/uploads/user')
+                ->setBasePath('uploads/user')
+                ->setUploadedFileNamePattern('[randomhash].[extension]')
+                ->setFormTypeOptions([
+                    'attr' => [
+                        'accept' => 'image/jpeg , image/png'
+                    ]
+                ])
+                ->hideWhenUpdating()
+                ->hideOnIndex()
+                ->setFormTypeOption('required' ,true),
             BooleanField::new("is_sub")->setDisabled(),
             ChoiceField::new('roles')
                 ->allowMultipleChoices()->setChoices([

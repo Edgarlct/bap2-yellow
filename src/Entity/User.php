@@ -51,9 +51,16 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     #[ORM\Column(type: 'boolean')]
     private $isVerified = false;
 
+    #[ORM\OneToMany(mappedBy: 'user', targetEntity: BlogContent::class, orphanRemoval: true)]
+    private $blogContents;
+
+    #[ORM\Column(type: 'string', length: 255)]
+    private $picture;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
+        $this->blogContents = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -229,6 +236,48 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setIsVerified(bool $isVerified): self
     {
         $this->isVerified = $isVerified;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, BlogContent>
+     */
+    public function getBlogContents(): Collection
+    {
+        return $this->blogContents;
+    }
+
+    public function addBlogContent(BlogContent $blogContent): self
+    {
+        if (!$this->blogContents->contains($blogContent)) {
+            $this->blogContents[] = $blogContent;
+            $blogContent->setUser($this);
+        }
+
+        return $this;
+    }
+
+    public function removeBlogContent(BlogContent $blogContent): self
+    {
+        if ($this->blogContents->removeElement($blogContent)) {
+            // set the owning side to null (unless already changed)
+            if ($blogContent->getUser() === $this) {
+                $blogContent->setUser(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
 
         return $this;
     }
