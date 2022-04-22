@@ -298,13 +298,14 @@ input:focus {
 .navbar .button-connecte {
   border: 2px solid #E2AC6C;
   background: none;
-  height: 55px;
-  width: 171px;
+  height: 50px;
+  width: 131px;
   margin-left: auto;
 }
 .navbar .button-connecte p {
   color: #E2AC6C;
   font-weight: 400;
+  font-size: 2.5rem;
 }
 @media only screen and (max-width: 1200px) {
   .navbar .button-connecte {
@@ -1469,4 +1470,7 @@ body {
   width: 90%;
 }
 
+.connexionContainer{
+  display: flex;
+}
 /*# sourceMappingURL=style.css.map */

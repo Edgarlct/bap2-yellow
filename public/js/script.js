@@ -129,6 +129,7 @@ exampleCarousel.useControls();
 let toggleMenuBtn = document.querySelector('#checkbox-toggler');
 let menuItems = document.querySelector('#menu-nav-link');
 let connecteBtn = document.querySelector('#menu-connecte-btn');
+let registerBtn = document.querySelector('#menu-register-btn');
 
 let menuOpen = false
 var click = 2;
@@ -137,11 +138,13 @@ toggleMenuBtn.addEventListener('click', (e) => {
         if(! menuOpen){
             menuItems.classList.add("nav-element-translate-in")
             connecteBtn.classList.add("nav-element-translate-in")
+            registerBtn.classList.add("nav-element-translate-in")
             document.querySelector('nav').classList.add("nav-translate-in")
             menuOpen = true;
         }else{
             menuItems.classList.remove("nav-element-translate-in")
             connecteBtn.classList.remove("nav-element-translate-in")
+            registerBtn.classList.remove("nav-element-translate-in")
             document.querySelector('nav').classList.remove("nav-translate-in")
             menuOpen = false;
         }
