@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\SocialType;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Persistence\ObjectManager;
@@ -26,6 +27,18 @@ class AppFixtures extends Fixture
 
          $user->setPassword($password);
          $manager->persist($user);
+
+         $socialType = [
+             "tel",
+             "email",
+             "url",
+         ];
+
+        foreach ($socialType as $item) {
+            $type = new SocialType();
+            $type->setName($item);
+            $manager->persist($type);
+         }
 
          $manager->flush();
     }
