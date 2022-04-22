@@ -7,6 +7,8 @@ use App\Form\BlogContentType;
 use App\Form\CommentType;
 use App\Repository\BlogContentRepository;
 use App\Repository\CommentRepository;
+use App\Repository\SocialRepository;
+use App\Repository\SocialTypeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -41,7 +43,7 @@ class BlogController extends AbstractController
     }
 
     #[Route('/blog/show/{id}', name: 'app_blog_show')]
-    public function show(Request $request, BlogContentRepository $blogContentRepository, CommentRepository $commentRepository, EntityManagerInterface $entityManager){
+    public function show(Request $request, BlogContentRepository $blogContentRepository, CommentRepository $commentRepository, EntityManagerInterface $entityManager, SocialTypeRepository $socialTypeRepository, SocialRepository $socialRepository){
         $article = $blogContentRepository->find($request->get('id'));
 
         $commentEntity = new Comment();
@@ -56,13 +58,14 @@ class BlogController extends AbstractController
             $entityManager->flush();
         }
 
-        $comment = $commentRepository->findBy(["blog" => $article]);
+        $comment = $commentRepository->findBy(["blog" => $article], ['id' => "DESC"]);
         $similarContent = $blogContentRepository->findBy(["category" => $article->getCategory()], ['id' => 'DESC'], 4);
         return $this->render('blog/show.html.twig', [
             'form' => $commentForm->createView(),
             'article' => $article,
             'comments' => $comment,
             'similar' => $similarContent,
+            'socials' => $socialRepository->findBy(['type' => $socialTypeRepository->findBy(['name' => "url"])]),
         ]);
     }
 }

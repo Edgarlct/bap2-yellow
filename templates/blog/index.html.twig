@@ -3,5 +3,36 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
-{{dump(blogArticle)}}
+    {% set paragraphs = blogArticle[0].content|split('</p>') %}
+    {% set firstParagraph = paragraphs|first ~ '</p>' %}
+    <section class="hero-Article">
+        <div class="content">
+            <h2>À la une,</h2>
+            <h4>{{blogArticle[0].name}}</h4>
+            {{ firstParagraph|raw }}
+            <a href="{{path('app_blog_show', {'id': blogArticle[0].id})}}" class="button">
+                <p>En savoir plus</p>
+            </a>
+        </div>
+
+        <div>
+            <img src="{{ asset('uploads/blog/' ~ blogArticle[0].picture) }}">
+        </div>
+    </section>
+
+    <!-- start of article -->
+    <h2 class="articles-title">Articles du mois</h2>
+    <section class="articles">
+        {% for article in blogArticle %}
+            <div class="article-card" onclick="window.location.href='{{path('app_blog_show', {'id': article.id})}}';">
+                <img src="{{ asset('uploads/blog/' ~ article.picture) }}" alt="image de couverture de l'article {{article.name}}">
+                <div>
+                    <h5>{{article.name}}</h5>
+                    <p class="date">{{article.createdAt|date("d M Y", "Europe/Paris")}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+
+    <!-- END of article -->
 {% endblock %}

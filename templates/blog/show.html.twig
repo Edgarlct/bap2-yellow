@@ -3,11 +3,67 @@
 {% block title %}Hello BlogController!{% endblock %}
 
 {% block body %}
-    {% if app.user != null%}
-    {{form(form)}}
-    {% endif %}
-    {{dump(app.user)}}
-    {{dump(article)}}
-    {{dump(comments)}}
-    {{dump(similar)}}
+    <!-- START of article -->
+
+    <section class="containerBlog">
+        {{ article.content|raw }}
+        <div class="social-media">
+            <div class="social-media-text">Partager</div>
+            <div class="social-network">
+                {% for social in socials %}
+                    <a href="{{social.url}}"><img src="{{asset('uploads/icon/' ~ social.image)}}" alt="yalow lien {{social.url}}"></a>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <!--Commentaire Section-->
+    <section class="commentaires">
+        <div class="containerComment">
+            <div class="add-comment-text">Ajouter un commentaire</div>
+            <div class="comments">
+                {% if app.user != null %}
+                    {{form_start(form)}}
+                    {{form_row(form.content)}}
+                    <div class="submit-buttons">
+                        <div>
+                            <input type="submit" class="button" value="Envoyer">
+                        </div>
+                    </div>
+                    {{form_end(form)}}
+                {% endif %}
+            </div>
+            {% for comment in comments%}
+                <div class="commentaire">
+                    <div class="user">
+                        <div class="user-photo">
+                            <img src="{{ asset('uploads/user/' ~ comment.user.picture) }}" alt="avatar">
+                        </div>
+                        <div class="user-info">
+                            <div class="user-name">{{comment.user.firstName ~ ' '~ comment.user.lastName }}</div>
+                            <div class="user-date">{{comment.createdAt|date("d M Y", "Europe/Paris")}}</div>
+                        </div>
+                    </div>
+                    <div class="user-text">{{comment.content}}</div>
+                </div>
+            {%endfor%}
+        </div>
+    </section>
+
+    <!-- END of the commentaire section -->
+
+    <!-- start of article -->
+    <h2 class="articles-title">Articles qui pourraient vous plaire:</h2>
+    <section class="articles">
+        {% for item in similar %}
+            <div class="article-card" onclick="window.location.href='{{path('app_blog_show', {'id': item.id})}}';">
+                <img src="{{ asset('uploads/blog/' ~ item.picture) }}" alt="image de couverture de l'article {{item.name}}">
+                <div>
+                    <h5>{{item.name}}</h5>
+                    <p class="date">{{item.createdAt|date("d M Y", "Europe/Paris")}}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </section>
+    <!-- END of article -->
 {% endblock %}
