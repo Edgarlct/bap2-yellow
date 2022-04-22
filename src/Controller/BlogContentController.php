@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Controller\Admin\BlogContentCrudController;
 use App\Entity\BlogContent;
+use App\Entity\User;
 use App\Form\BlogContentType;
 use App\Repository\BlogContentRepository;
 use App\Repository\CategoryRepository;
@@ -43,6 +44,7 @@ class BlogContentController extends AbstractController
             $content->setContent($form->get("content")->getData());
             $content->setOpenComment($form->get("openComment")->getData());
             $content->setIsVisible($form->get("isVisible")->getData());
+            $content->setUser($this->getUser());
             $image = $form->get('picture')->getData();
 
             // new file name
@@ -60,6 +62,7 @@ class BlogContentController extends AbstractController
             return $this->redirect($url);
         }
         return $this->render('blog_content/index.html.twig', [
+            "user" => $this->getUser(),
             'url' => $url,
             "form" => $form->createView(),
         ]);

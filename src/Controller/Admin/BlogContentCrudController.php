@@ -30,6 +30,7 @@ class BlogContentCrudController extends AbstractCrudController
             IdField::new('id')->setDisabled()->setColumns(3),
             TextField::new('name')->setColumns(3),
             AssociationField::new("category"),
+            AssociationField::new("user"),
 
             FormField::addTab("test"),
 
