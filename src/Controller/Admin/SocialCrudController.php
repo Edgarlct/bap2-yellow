@@ -30,21 +30,7 @@ class SocialCrudController extends AbstractCrudController
                     'attr' => [
                         'accept' => 'image/jpeg , image/png'
                     ]
-                ])
-                ->hideWhenCreating()
-                ->setFormTypeOption('required' ,false),
-            ImageField::new('image')
-                ->setUploadDir('public/uploads/icon')
-                ->setBasePath('uploads/icon')
-                ->setUploadedFileNamePattern('[randomhash].[extension]')
-                ->setFormTypeOptions([
-                    'attr' => [
-                        'accept' => 'image/jpeg , image/png'
-                    ]
-                ])
-                ->hideWhenUpdating()
-                ->hideOnIndex()
-                ->setFormTypeOption('required' ,true),
+                ]),
             AssociationField::new('type')
         ];
     }

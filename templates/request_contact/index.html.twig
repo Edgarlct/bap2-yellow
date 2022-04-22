@@ -3,5 +3,9 @@
 {% block title %}Hello RequestContactController!{% endblock %}
 
 {% block body %}
+    {{dump(social)}}
 {{form(form)}}
+    {% for socialMetohde in social %}
+        {{socialMetohde.url}}
+    {% endfor %}
 {% endblock %}

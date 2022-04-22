@@ -16,9 +16,6 @@ class Social
     #[ORM\Column(type: 'string', length: 255)]
     private $url;
 
-    #[ORM\Column(type: 'string', length: 255)]
-    private $icon;
-
     #[ORM\ManyToOne(targetEntity: SocialType::class, inversedBy: 'socials')]
     #[ORM\JoinColumn(nullable: false)]
     private $type;
@@ -39,18 +36,6 @@ class Social
     public function setUrl(string $url): self
     {
         $this->url = $url;
-
-        return $this;
-    }
-
-    public function getIcon(): ?string
-    {
-        return $this->icon;
-    }
-
-    public function setIcon(string $icon): self
-    {
-        $this->icon = $icon;
 
         return $this;
     }
