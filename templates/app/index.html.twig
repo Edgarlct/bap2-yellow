@@ -15,9 +15,9 @@
 
                 Yalow vous met à disposition une solution simple, sécurisée et confidentielle pour communiquer avec vos
                 clients et collaborateurs. </p>
-            <div class="button button-subscribe">
+            <a href="#offer" class="button button-subscribe">
                 <p>S'abonner</p>
-            </div>
+            </a>
 
             <a href="#tkt" class="down-btn">
                 <svg width="30" height="17" viewBox="0 0 30 17" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -90,7 +90,7 @@
 
     <!--notre offre-->
     {% set price = offers.price|split('.') %}
-    <section class="our-offer">
+    <section class="our-offer" id="offer">
         <div class="card">
             <h2>Notre offre</h2>
 
@@ -107,9 +107,9 @@
 
             </div>
 
-            <div class="button button-subscribe">
+            <a href="{{offers.paimentLink}}" target="_blank" class="button button-subscribe">
                 <p>S'abonner</p>
-            </div>
+            </a>
 
         </div>
     </section>

@@ -31,6 +31,9 @@ class Offer
     #[Gedmo\Timestampable(on: 'update')]
     private $updatedAt;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $paimentLink;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -92,6 +95,18 @@ class Offer
     public function setUpdatedAt(\DateTimeInterface $updatedAt): self
     {
         $this->updatedAt = $updatedAt;
+
+        return $this;
+    }
+
+    public function getPaimentLink(): ?string
+    {
+        return $this->paimentLink;
+    }
+
+    public function setPaimentLink(string $paimentLink): self
+    {
+        $this->paimentLink = $paimentLink;
 
         return $this;
     }

@@ -23,6 +23,7 @@ class OfferCrudController extends AbstractCrudController
             IdField::new('id')->setDisabled()->setColumns(4),
             TextField::new('name')->setColumns(4),
             NumberField::new("price")->setColumns(4),
+            TextField::new('paimentLink')->setColumns(12),
             TextareaField::new('content')->setColumns(12),
         ];
     }
