@@ -1499,4 +1499,9 @@ body {
   border: gray 1px solid;
   border-radius: 8px;
 }
+
+.containerLegal{
+  margin: 5rem;
+  font-size: 16px;
+}
 /*# sourceMappingURL=style.css.map */
