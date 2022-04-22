@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello BlogController!{% endblock %}
+
+{% block body %}
+    {% if app.user != null%}
+    {{form(form)}}
+    {% endif %}
+    {{dump(app.user)}}
+    {{dump(article)}}
+    {{dump(comments)}}
+    {{dump(similar)}}
+{% endblock %}
