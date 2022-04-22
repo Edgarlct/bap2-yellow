@@ -39,7 +39,7 @@ body{
     margin: 0;
 }
 
-.sidebarContent > div{
+.sidebarContent > form > div{
     display: flex;
     flex-direction: column;
     align-items: start;
@@ -62,12 +62,12 @@ body{
     width: 100%;
 }
 
-.sidebarContent > div:nth-child(4){
+.sidebarContent > form > div:nth-child(3){
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.sidebarContent > div:nth-child(5){
+.sidebarContent > form > div:nth-child(4){
     flex-direction: row;
     flex-wrap: wrap;
 }
