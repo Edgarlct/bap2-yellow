@@ -18,7 +18,7 @@ class Newsletter
     private $email;
 
     #[ORM\Column(type: 'boolean')]
-    private $isSub;
+    private $isSub = true;
 
     #[ORM\Column(type: 'datetime')]
     #[Gedmo\Timestampable(on: 'create')]

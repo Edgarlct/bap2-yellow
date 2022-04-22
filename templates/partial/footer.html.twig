@@ -1,4 +1,27 @@
-{{dump(socials)}}
-{% for social in socials %}
-    {{social.image}}
-{% endfor %}
+<!-- footer -->
+<footer>
+    <div class="footer-wrapper">
+        <img src="{{ asset('assets/logo/LOGO.png') }}" alt="logo de yalow">
+        <div class="footer-links">
+            <a href="{{path('app')}}">Accueil</a>
+            <a href="{{path('app_blog')}}">Blog</a>
+            <a href="{{path('app_request_contact')}}">Contact</a>
+        </div>
+        <div class="contact">
+            <div class="social-network">
+                {% for social in socials %}
+                    <a href="{{social.url}}"><img src="{{asset('uploads/icon/' ~ social.image)}}" alt="yalow lien {{social.url}}"></a>
+                {% endfor %}
+{#                <a href="#"><img src="assets/graphics/social-networks/instagram.png" alt="yalow instagram account link"></a>#}
+{#                <a href="#"><img src="assets/graphics/social-networks/linkedin.png" alt="yalow linkedin account link"></a>#}
+{#                <a href="#"><img src="assets/graphics/social-networks/twitter.png" alt="yalow twitter account link"></a>#}
+            </div>
+            <p>{{tel.url}}</p>
+        </div>
+
+    </div>
+
+    <p class="copyright">Copyright 2022 - <a href="#">Mentions légales</a></p>
+</footer>
+
+<!-- footer END-->

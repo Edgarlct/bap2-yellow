@@ -2,6 +2,7 @@
 
 namespace App\DataFixtures;
 
+use App\Entity\Offer;
 use App\Entity\SocialType;
 use App\Entity\User;
 use Doctrine\Bundle\FixturesBundle\Fixture;
@@ -39,6 +40,14 @@ class AppFixtures extends Fixture
             $type->setName($item);
             $manager->persist($type);
          }
+
+        $offer = new Offer();
+        $offer->setContent("Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s");
+        $offer->setPrice(9.99);
+        $offer->setName('start');
+
+        $manager->persist($offer);
+
 
          $manager->flush();
     }

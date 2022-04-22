@@ -7,6 +7,7 @@ use App\Form\NewsletterType;
 use App\Repository\EquipeRepository;
 use App\Repository\OfferRepository;
 use App\Repository\SocialRepository;
+use App\Repository\SocialTypeRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -29,18 +30,20 @@ class AppController extends AbstractController
             $entityManager->flush();
         }
         return $this->render('app/index.html.twig', [
-            'offers' => $offerRepository->findAll(),
+            'offers' => $offerRepository->findAll()[0],
             'teamMembers' => $equipeRepository->findAll(),
             'newsletterForm' => $newsletterForm->createView(),
         ]);
     }
 
     public function footer(
-        SocialRepository $socialRepository
+        SocialRepository $socialRepository,
+        SocialTypeRepository $socialTypeRepository
     )
     {
         return $this->render('partial/footer.html.twig', [
-            'socials' => $socialRepository->findAll(),
+            'socials' => $socialRepository->findBy(['type' => $socialTypeRepository->findBy(['name' => "url"])]),
+            "tel" => $socialRepository->findOneBy(['type' => $socialTypeRepository->findBy(['name' => 'tel'])])
         ]);
     }
 }

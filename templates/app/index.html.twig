@@ -2,5 +2,160 @@
 
 {% block title %}Hello AppController!{% endblock %}
 {% block body %}
-    {{form(newsletterForm)}}
+    <!--hero banner-->
+    <header class="heroBanner">
+        <img src="{{ asset('assets/graphics/hero-ilu-2.png') }}" alt="ilustration">
+        <div class="hero-text">
+            <h1>Yalow, la plateforme collaborative pour les avocats </h1>
+            <p>Yalow est n’est pas un simple outil dédié aux les avocats mais une solution pour digitaliser votre
+                domaine d’activité.
+
+                Vous êtes un(e) jeune diplômé qui souhaite lancer son propre cabinet ?
+                Vous souhaitez en savoir plus sur la digitalisation du métier d’avocat ?
+
+                Yalow vous met à disposition une solution simple, sécurisée et confidentielle pour communiquer avec vos
+                clients et collaborateurs. </p>
+            <div class="button button-subscribe">
+                <p>S'abonner</p>
+            </div>
+
+            <a href="#tkt" class="down-btn">
+                <svg width="30" height="17" viewBox="0 0 30 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M1 1L15 15L29 1" stroke="#E2AC6C" stroke-width="2"/>
+                </svg>
+            </a>
+        </div>
+        <img src="{{ asset('assets/graphics/hero-Ilu.png') }}" alt="ilustration">
+
+    </header>
+    <!--  about  -->
+    <section class="about">
+        <div class="about-content">
+            <img src="{{ asset('assets/graphics/thinkingMan.png') }}" alt="a very nice illustration">
+            <div class="about-text">
+                <h2>Yalow, c’est principalement</h2>
+                <h5>Un accompagnement de qualité ! </h5>
+                <p>Yalow vous accompagne tout au long de la découverte de l’outil pour vous simplifier la prise en main
+                    de celui-ci.
+
+                    De plus, si vous débutez en tant qu’avocat, la plateforme vous mettra en relation avec notre
+                    communauté d’avocats qui saura répondre aux diverses interrogations auxquelles vous pourrez faire
+                    face.
+
+                    Yalow c’est avant tout un espace de collaboration et d’entraide !</p>
+            </div>
+        </div>
+    </section>
+
+    <!--about end -->
+    <!-- valeurs -->
+
+    <section class="valeurs">
+        <h2>Yalow, c’est avant tout</h2>
+        <div class="cards">
+
+            <div class="card">
+                <img src="{{ asset('assets/graphics/securite.png') }}" alt="illustration de la notion de securité">
+                <h5>Sécurité</h5>
+                <p>Oubliez les messageries et les outils
+                    non sécurisés qui ne protègent pas suffisament vos données et pertubent votre profession !
+
+                    Yalow vous permet de communiquer et d’échanger facilement ves fichiers les plus confidentiels sans
+                    aucune récolte de données possible ! </p>
+            </div>
+
+            <div class="card">
+                <img src="{{ asset('assets/graphics/innovation.png') }}" alt="illustration de l'innovation">
+                <h5>Innovation</h5>
+                <p>Depuis la crise sanitaire, les outils digitaux n’ont cessés d’apporter des nouvelles solutions.
+
+                    C’est pourquoi Yalow vous propose de vous accompagner dans la digitalisation de votre cabinet.
+                    Simple d’utilisation, la plateforme vous offrira un gain de temps non-négligeable. </p>
+            </div>
+
+            <div class="card">
+                <img src="{{ asset('assets/graphics/confidentialite.png') }}"
+                     alt="illustration de la notion de confidentialité">
+                <h5>Confiance</h5>
+                <p>Retrouvez sur notre plateforme nos ambassadeurs, des avocats qui ont d’ores et déjà opter pour la
+                    solution Yalow !
+
+                    Celle-ci vous permettra de vous projeter dans un futur commun avec l’application.
+                    Ils seront également là pour vous accompagner tout au long de votre transition digitale. </p>
+            </div>
+        </div>
+    </section>
+
+    <!--valeurs end-->
+
+    <!--notre offre-->
+    {% set price = offers.price|split('.') %}
+    <section class="our-offer">
+        <div class="card">
+            <h2>Notre offre</h2>
+
+            <p class="our-offer-text">{{ offers.content }}</p>
+
+            <div class="price">
+                <div class="main">
+                    <p>{{ price[0] }}</p>
+                </div>
+                <div>
+                    <p class="cents">€{{price[1]}}</p>
+                    <p class="frequency">/mois</p>
+                </div>
+
+            </div>
+
+            <div class="button button-subscribe">
+                <p>S'abonner</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!--notre offre end -->
+
+    <!--hero banner end -->
+
+    <div class="gallery">
+
+        <h2>Notre équipe</h2>
+
+        <div class="gallery-container">
+            {% for member in teamMembers %}
+                <img class="gallery-item" src="{{asset('uploads/team/' ~ member.picture)}}">
+            {% endfor %}
+        </div>
+        <div class="gallery-controls"></div>
+    </div>
+
+    <!--subscribe to newslater -->
+
+    <section class="newslatter">
+        <h2>Inscrivez vous à notre Newsletter</h2>
+        <form action="" method="post" class="newsletter-form">
+            <div>
+                {{form_start(newsletterForm)}}
+                {{form_row(newsletterForm.email)}}
+                {{form_row(newsletterForm.send)}}
+{#                <input type="email" class="email" placeholder="E-mail">#}
+{#                <input type="submit" class="button newslatter-btn">#}
+            </div>
+            <div class="rgpd-check">
+                <input type="checkbox" id="cbx" style="display: none;">
+                <label for="cbx" class="check">
+                    <svg width="18px" height="18px" viewBox="0 0 18 18">
+                        <path d="M1,9 L1,3.5 C1,2 2,1 3.5,1 L14.5,1 C16,1 17,2 17,3.5 L17,14.5 C17,16 16,17 14.5,17 L3.5,17 C2,17 1,16 1,14.5 L1,9 Z"></path>
+                        <polyline points="1 9 7 14 15 4"></polyline>
+                    </svg>
+                </label>
+                <p> J’accepte la politique de confidentialité de Yalow. </p>
+            </div>
+
+                {{form_end(newsletterForm)}}
+        </form>
+    </section>
+
+    <!--subscribe to newslater END-->
 {% endblock %}

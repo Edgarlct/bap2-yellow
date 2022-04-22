@@ -16,13 +16,17 @@ class NewsletterType extends AbstractType
     {
         $builder
             ->add('email', EmailType::class, [
-                'label' => false
-            ])
-            ->add('isSub', CheckboxType::class, [
-                'label' => 'J’accepte la politique de confidentialité de Yalow.'
+                'label' => false,
+                'attr' => [
+                    'placeholder' => 'E-mail',
+                    'class' => 'email'
+                ]
             ])
             ->add('send', SubmitType::class, [
-                'label' => 'S\'abonner'
+                'label' => 'Envoyer',
+                'attr' => [
+                    'class' => 'button newslatter-btn'
+                ]
             ])
         ;
     }
