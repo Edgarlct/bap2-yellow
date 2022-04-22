@@ -43,6 +43,9 @@ class BlogContent
     #[ORM\OneToMany(mappedBy: 'blog', targetEntity: Comment::class, orphanRemoval: true)]
     private $comments;
 
+    #[ORM\Column(type: 'string', length: 255)]
+    private $picture;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -170,5 +173,17 @@ class BlogContent
     public function __toString(): string
     {
         return $this->getName();
+    }
+
+    public function getPicture(): ?string
+    {
+        return $this->picture;
+    }
+
+    public function setPicture(string $picture): self
+    {
+        $this->picture = $picture;
+
+        return $this;
     }
 }

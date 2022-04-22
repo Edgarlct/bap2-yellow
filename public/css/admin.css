@@ -62,12 +62,12 @@ body{
     width: 100%;
 }
 
-.sidebarContent > form > div:nth-child(3){
+.sidebarContent > form > div:nth-child(4){
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.sidebarContent > form > div:nth-child(4){
+.sidebarContent > form > div:nth-child(5){
     flex-direction: row;
     flex-wrap: wrap;
 }

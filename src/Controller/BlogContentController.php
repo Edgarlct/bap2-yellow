@@ -43,6 +43,18 @@ class BlogContentController extends AbstractController
             $content->setContent($form->get("content")->getData());
             $content->setOpenComment($form->get("openComment")->getData());
             $content->setIsVisible($form->get("isVisible")->getData());
+            $image = $form->get('picture')->getData();
+
+            // new file name
+            $file = md5(uniqid()) . '.' . $image->guessExtension();
+
+            // move files in upload folder
+            $image->move(
+                $this->getParameter('images_directory'),
+                $file
+            );
+            $content->setPicture($file);
+
             $entityManager->persist($content);
             $entityManager->flush();
             return $this->redirect($url);
