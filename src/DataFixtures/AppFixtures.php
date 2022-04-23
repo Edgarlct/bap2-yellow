@@ -51,22 +51,22 @@ class AppFixtures extends Fixture
 
         $socialData = [
             [
-                "url" => "instagram.com",
+                "url" => "https://www.instagram.com/?hl=fr",
                 "icon" => "2a0d02262cfa8c9a4a0f270b02df93d02927a27e.png",
                 "type" => "url",
             ],
             [
-                "url" => "twitter.com",
+                "url" => "https://twitter.com/?lang=fr",
                 "icon" => "4a4ceb54b04ffd75c6cb5db4332e5b5044f116c6.png",
                 "type" => "url",
             ],
             [
-                "url" => "linkedin.com",
+                "url" => "https://www.linkedin.com/home/?originalSubdomain=fr",
                 "icon" => "5c9b8cbbb70e42ab76ccb6d320e9f5f0135766c5.png",
                 "type" => "url",
             ],
             [
-                "url" => "facebook.com",
+                "url" => "https://fr-fr.facebook.com/",
                 "icon" => "db4e8b89dad7b10cca518e23db0156368059097f.png",
                 "type" => "url",
             ],
