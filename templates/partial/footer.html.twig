@@ -10,7 +10,7 @@
         <div class="contact">
             <div class="social-network">
                 {% for social in socials %}
-                    <a href="{{social.url}}"><img src="{{asset('uploads/icon/' ~ social.image)}}" alt="yalow lien {{social.url}}"></a>
+                    <a href="{{social.url}}" target="_blank"><img src="{{asset('uploads/icon/' ~ social.image)}}" alt="yalow lien {{social.url}}"></a>
                 {% endfor %}
 {#                <a href="#"><img src="assets/graphics/social-networks/instagram.png" alt="yalow instagram account link"></a>#}
 {#                <a href="#"><img src="assets/graphics/social-networks/linkedin.png" alt="yalow linkedin account link"></a>#}
