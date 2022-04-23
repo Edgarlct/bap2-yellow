@@ -16,7 +16,9 @@
 {#                <a href="#"><img src="assets/graphics/social-networks/linkedin.png" alt="yalow linkedin account link"></a>#}
 {#                <a href="#"><img src="assets/graphics/social-networks/twitter.png" alt="yalow twitter account link"></a>#}
             </div>
+            {% if tel.url is defined%}
             <p>{{tel.url}}</p>
+            {% endif %}
         </div>
 
     </div>

@@ -32,6 +32,8 @@ class RequestContactController extends AbstractController
             $requestContact->setContent($ContactForm->get("content")->getData());
             $entityManager->persist($requestContact);
             $entityManager->flush();
+
+            return $this->redirectToRoute('app');
         }
         return $this->render('request_contact/index.html.twig', [
             'social' => $social,

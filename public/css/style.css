@@ -1504,4 +1504,83 @@ body {
   margin: 5rem;
   font-size: 16px;
 }
+
+.containerLegal h1{
+  font-size: 24px;
+  margin: 16px 0px;
+}
+
+.containerForm{
+  width: 60%;
+  margin: 5rem auto;
+  background: hsla(222, 56%, 16%, 1);
+  border-radius: 10px;
+  padding: 5rem;
+}
+
+.containerForm h1{
+  font-size: 3rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.containerForm .form-control{
+  width: 100%;
+  background-color: #F0F2F4;
+  border: darkgray solid 1px;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 1rem;
+  margin-bottom: 16px;
+}
+
+.containerForm > form > div > div {
+  display: flex;
+}
+
+.containerForm > form > div > div textarea {
+  color: black;
+}
+
+.containerForm > form > div > div textarea::placeholder {
+  color: gray;
+}
+.containerForm > form > div > div select {
+  color: gray;
+}
+
+.containerForm > form > div > div:nth-child(4) {
+  flex-direction: column;
+  gap: 16px;
+}
+
+.containerForm > form > div > div:nth-child(4) label {
+  font-size: 16px;
+}
+
+.title{
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+.contactInformation{
+  width: 40%;
+  margin: 4rem auto;
+  text-align: center;
+}
+.contactInformation p {
+  margin-bottom: 2rem;
+}
+
+.buttonContact {
+  font-size: 16px;
+  padding: 8px 24px;
+  background: #E2AC6C;
+  border-radius: 5px;
+  border: none;
+}
+
+.dataContact.dataContact{
+  margin-bottom: 4px;
+}
 /*# sourceMappingURL=style.css.map */

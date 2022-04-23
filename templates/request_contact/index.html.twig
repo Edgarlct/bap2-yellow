@@ -1,11 +1,20 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}Hello RequestContactController!{% endblock %}
 
 {% block body %}
-    {{dump(social)}}
-{{form(form)}}
-    {% for socialMetohde in social %}
-        {{socialMetohde.url}}
-    {% endfor %}
+    <div class="containerForm">
+        <h1>Contactez nous</h1>
+
+        {{ form(form) }}
+    </div>
+    <div class="contactInformation">
+        <p class="title">Besoins d’informations ?</p>
+        <p>Si vous avez besoins d’une informations n’hésitez pas à nous contactez sur les réseaux sociaux, par téléphone
+            ou par e-mail</p>
+        {% for socialMetohde in social %}
+            <p class="dataContact">
+                {{ socialMetohde.url }}
+            </p>
+        {% endfor %}
+    </div>
 {% endblock %}
