@@ -57,7 +57,7 @@
         <a href="{{ path('app_request_contact') }}"
            class="{{ app.request.get('_route') == "app_request_contact" ? "active" : "" }}">Contact</a>
         {% if app.user != null and ("ROLE_ADMIN" in app.user.roles) %}
-            <a href="{{ path('admin') }}">Admin</a>
+            <a href="{{ path('admin') }}" target="_blank">Admin</a>
         {% endif %}
     </div>
     {% if app.user == null %}
